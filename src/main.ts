@@ -1,4 +1,5 @@
 import * as yargs from "yargs";
+import Converter from "./converter";
 
 const argv = yargs.options({
   inputDir: {
@@ -16,3 +17,8 @@ const argv = yargs.options({
   },
   help: { type: "boolean", alias: "h" },
 }).argv;
+
+Converter(argv).catch((error) => {
+  console.error("An unexpected error occurred", error);
+  process.exit(1);
+});
