@@ -1,0 +1,11 @@
+{
+  "name": "remarkable-notepads-to-pdf",
+  "version": "0.0.1",
+  "description": "Simple utility to export notepads as PDFs and organise them",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Antony O'Neill",
+  "license": "MIT"
+}
