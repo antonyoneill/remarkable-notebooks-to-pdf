@@ -18,6 +18,18 @@
     "yargs": "^15.3.1"
   },
   "devDependencies": {
-    "@types/yargs": "^15.0.5"
+    "@types/yargs": "^15.0.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "npm run lint:fix"
+    ]
   }
 }
