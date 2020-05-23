@@ -2,9 +2,9 @@
   "name": "remarkable-notepads-to-pdf",
   "version": "0.0.1",
   "description": "Simple utility to export notepads as PDFs and organise them",
-  "main": "src/index.ts",
+  "main": "src/main.ts",
   "scripts": {
-    "convert": "ts-node src/index.ts",
+    "convert": "ts-node src/main.ts",
     "style:check": "prettier --check .",
     "style:fix": "prettier --write .",
     "lint:check": "eslint --ext .ts .",
