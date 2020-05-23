@@ -2,10 +2,15 @@
   "name": "remarkable-notepads-to-pdf",
   "version": "0.0.1",
   "description": "Simple utility to export notepads as PDFs and organise them",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
+    "convert": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Antony O'Neill",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  }
 }
