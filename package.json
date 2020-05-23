@@ -5,11 +5,14 @@
   "main": "src/index.ts",
   "scripts": {
     "convert": "ts-node src/index.ts",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Antony O'Neill",
   "license": "MIT",
   "dependencies": {
+    "prettier": "^2.0.5",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.3"
   }
