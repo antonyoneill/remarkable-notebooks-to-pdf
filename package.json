@@ -39,5 +39,8 @@
     "*.ts": [
       "eslint --fix --ext .ts"
     ]
+  },
+  "engines": {
+    "node": "12.16.x"
   }
 }
