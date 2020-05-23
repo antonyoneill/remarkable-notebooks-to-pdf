@@ -4,6 +4,7 @@ const argv = yargs.options({
   inputDir: {
     type: "string",
     required: true,
+
     alias: "i",
     describe: "path to remarkable notepads",
   },
