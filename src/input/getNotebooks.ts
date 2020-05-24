@@ -1,14 +1,7 @@
 import * as fs from "fs";
 import * as glob from "glob";
 import * as path from "path";
-
-interface Metadata {
-  id: string;
-  lastModified: string;
-  parent: Metadata["id"];
-  type: "DocumentType" | "CollectionType";
-  visibleName: string;
-}
+import Metadata from "../types/Metadata";
 
 const findMetadataFiles = async (baseDir): Promise<string[]> => {
   const metadataFiles = glob.sync("**/*.metadata", {
