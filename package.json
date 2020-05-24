@@ -1,7 +1,7 @@
 {
-  "name": "remarkable-notepads-to-pdf",
+  "name": "remarkable-notebooks-to-pdf",
   "version": "0.0.1",
-  "description": "Simple utility to export notepads as PDFs and organise them",
+  "description": "Simple utility to export notebooks as PDFs and organise them",
   "main": "src/main.ts",
   "scripts": {
     "convert": "ts-node src/main.ts",

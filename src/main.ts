@@ -7,13 +7,13 @@ const argv = yargs.options({
     required: true,
 
     alias: "i",
-    describe: "path to remarkable notepads",
+    describe: "path to remarkable notebooks",
   },
   outputDir: {
     type: "string",
     required: true,
     alias: "o",
-    describe: "path to contain notepad PDFs",
+    describe: "path to contain notebook PDFs",
   },
   help: { type: "boolean", alias: "h" },
 }).argv;

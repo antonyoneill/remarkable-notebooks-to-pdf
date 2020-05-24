@@ -1,4 +1,4 @@
-# Remarkable Notepad to PDF
+# Remarkable Notebook to PDF
 
 This tool exists purely as a learning exercise & productivity workflow enhancement.
 
