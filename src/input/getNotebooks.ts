@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as glob from "glob";
 import * as path from "path";
-import Metadata from "../types/Metadata";
+import RemarkableMetadata from "../types/RemarkableMetadata";
 
 const findMetadataFiles = async (baseDir): Promise<string[]> => {
   const metadataFiles = glob.sync("**/*.metadata", {
@@ -17,7 +17,7 @@ const findMetadataFiles = async (baseDir): Promise<string[]> => {
   return metadataFiles;
 };
 
-const readMetadata = (metadataFile: string): Metadata => {
+const readMetadata = (metadataFile: string): RemarkableMetadata => {
   const rawMetadata = fs.readFileSync(metadataFile, { encoding: "utf-8" });
 
   const metadata = JSON.parse(rawMetadata);
@@ -33,7 +33,7 @@ const readMetadata = (metadataFile: string): Metadata => {
   };
 };
 
-const getNotebooks = async (baseDir): Promise<Metadata[]> => {
+const getNotebooks = async (baseDir): Promise<RemarkableMetadata[]> => {
   const metadataFiles = await findMetadataFiles(baseDir);
 
   return metadataFiles.map(readMetadata);

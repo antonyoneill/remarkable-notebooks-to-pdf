@@ -1,9 +1,9 @@
-interface Metadata {
+interface RemarkableMetadata {
   id: string;
   lastModified: string;
-  parent: Metadata["id"];
+  parent: RemarkableMetadata["id"];
   type: "DocumentType" | "CollectionType";
   visibleName: string;
 }
 
-export default Metadata;
+export default RemarkableMetadata;
