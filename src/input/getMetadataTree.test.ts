@@ -99,4 +99,64 @@ describe("getMetadataTree", () => {
       "notebook-id": expect.objectContaining({ id: "notebook-id" }),
     });
   });
+
+  it("can handle nested folders", () => {
+    const input: RemarkableMetadata[] = [
+      {
+        id: "notebook-id",
+        lastModified: "01234",
+        parent: "",
+        type: "DocumentType",
+        visibleName: "Root Notebook",
+      },
+      {
+        id: "root-folder",
+        lastModified: "01234",
+        parent: "",
+        type: "CollectionType",
+        visibleName: "Folder",
+      },
+      {
+        id: "nested-notebook-id",
+        lastModified: "01234",
+        parent: "nested-folder",
+        type: "DocumentType",
+        visibleName: "Nested Notebook",
+      },
+      {
+        id: "nested-folder",
+        lastModified: "01234",
+        parent: "root-folder",
+        type: "CollectionType",
+        visibleName: "Nested Folder",
+      },
+      {
+        id: "root-folder",
+        lastModified: "01234",
+        parent: "",
+        type: "CollectionType",
+        visibleName: "Folder",
+      },
+    ];
+
+    const output = getMetadataTree(input);
+
+    expect(Object.keys(output)).toHaveLength(2);
+    expect(output).toMatchObject({
+      "root-folder": expect.objectContaining({
+        id: "root-folder",
+        content: {
+          "nested-folder": expect.objectContaining({
+            id: "nested-folder",
+            content: {
+              "nested-notebook-id": expect.objectContaining({
+                id: "nested-notebook-id",
+              }),
+            },
+          }),
+        },
+      }),
+      "notebook-id": expect.objectContaining({ id: "notebook-id" }),
+    });
+  });
 });

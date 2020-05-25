@@ -12,10 +12,19 @@ const getMetadataTree = (input: RemarkableMetadata[]): MetadataTree =>
         ...metadata,
         ...acc[metadata.id],
       };
-    } else if (acc[metadata.parent]) {
-      acc[metadata.parent].content[metadata.id] = metadata;
     } else {
-      acc[metadata.parent] = { content: { [metadata.id]: metadata } };
+      if (acc[metadata.parent]) {
+        acc[metadata.parent].content[metadata.id] = {
+          ...metadata,
+          ...acc[metadata.id],
+        };
+      } else {
+        acc[metadata.parent] = {
+          content: { [metadata.id]: { ...metadata, ...acc[metadata.id] } },
+        };
+      }
+
+      delete acc[metadata.id];
     }
 
     return acc;
