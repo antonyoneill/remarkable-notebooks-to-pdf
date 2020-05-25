@@ -5,7 +5,7 @@ describe("getMetadataTree", () => {
   it("can handle a simple notebook", () => {
     const input: RemarkableMetadata[] = [
       {
-        id: "id",
+        id: "notebook-id",
         lastModified: "01234",
         parent: "",
         type: "DocumentType",
@@ -15,8 +15,8 @@ describe("getMetadataTree", () => {
 
     const output = getMetadataTree(input);
 
-    expect(output).toHaveLength(1);
-    expect(output[0]).toMatchObject({ id: "id" });
+    expect(Object.keys(output)).toHaveLength(1);
+    expect(output).toMatchObject({ "notebook-id": { id: "notebook-id" } });
   });
 
   it("can handle nested notebook", () => {
@@ -46,16 +46,18 @@ describe("getMetadataTree", () => {
 
     const output = getMetadataTree(input);
 
-    expect(output).toHaveLength(2);
-    expect(output).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          id: "folder-id",
-          content: [expect.objectContaining({ id: "nested-notebook-id" })],
-        }),
-        expect.objectContaining({ id: "notebook-id" }),
-      ])
-    );
+    expect(Object.keys(output)).toHaveLength(2);
+    expect(output).toMatchObject({
+      "folder-id": expect.objectContaining({
+        id: "folder-id",
+        content: {
+          "nested-notebook-id": expect.objectContaining({
+            id: "nested-notebook-id",
+          }),
+        },
+      }),
+      "notebook-id": expect.objectContaining({ id: "notebook-id" }),
+    });
   });
   it("can handle nested notebooks, when folder is after notebook", () => {
     const input: RemarkableMetadata[] = [
@@ -84,15 +86,17 @@ describe("getMetadataTree", () => {
 
     const output = getMetadataTree(input);
 
-    expect(output).toHaveLength(2);
-    expect(output).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          id: "folder-id",
-          content: [expect.objectContaining({ id: "nested-notebook-id" })],
-        }),
-        expect.objectContaining({ id: "notebook-id" }),
-      ])
-    );
+    expect(Object.keys(output)).toHaveLength(2);
+    expect(output).toMatchObject({
+      "folder-id": expect.objectContaining({
+        id: "folder-id",
+        content: {
+          "nested-notebook-id": expect.objectContaining({
+            id: "nested-notebook-id",
+          }),
+        },
+      }),
+      "notebook-id": expect.objectContaining({ id: "notebook-id" }),
+    });
   });
 });

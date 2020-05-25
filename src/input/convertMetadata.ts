@@ -11,7 +11,7 @@ const convertMetadata = (
       lastModified: input.lastModified,
       parent: input.parent,
       visibleName: input.visibleName,
-      content: [],
+      content: {},
     };
   } else if (input.type === "DocumentType") {
     return {

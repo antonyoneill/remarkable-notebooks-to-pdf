@@ -4,7 +4,7 @@ import DocumentMetadata from "../types/DocumentMetadata";
 import CollectionMetadata from "../types/CollectionMetadata";
 import convertMetadata from "./convertMetadata";
 
-type MetadataTree = Array<DocumentMetadata | CollectionMetadata>;
+type MetadataTree = { [key: string]: DocumentMetadata | CollectionMetadata };
 
 const getMetadataTree = (input: RemarkableMetadata[]): MetadataTree => {
   const shallowTree = {};
@@ -16,14 +16,16 @@ const getMetadataTree = (input: RemarkableMetadata[]): MetadataTree => {
         ...shallowTree[metadata.id],
       };
       return;
-    } else if (shallowTree[metadata.parent]) {
-      shallowTree[metadata.parent].content.push(metadata);
+    }
+
+    if (shallowTree[metadata.parent]) {
+      shallowTree[metadata.parent].content[metadata.id] = metadata;
     } else {
-      shallowTree[metadata.parent] = { content: [metadata] };
+      shallowTree[metadata.parent] = { content: { [metadata.id]: metadata } };
     }
   });
 
-  return Object.values(shallowTree);
+  return shallowTree;
 };
 
 export default getMetadataTree;
