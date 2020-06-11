@@ -1,0 +1,23 @@
+import * as mockfs from "mock-fs";
+import readContent from "./readContent";
+
+describe("readContent", () => {
+  it("reads the content from the file system", () => {
+    const context = {
+      baseDir: "/",
+      notebookId: "notebook-id",
+    };
+
+    const content = {
+      pages: ["page-id-1", "page-id-2"],
+    };
+
+    mockfs({
+      "/notebook-id.content": JSON.stringify(content),
+    });
+
+    const output = readContent(context);
+
+    expect(output).toMatchObject(content);
+  });
+});
