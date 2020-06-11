@@ -1,3 +1,5 @@
+[![<remarkable-notebooks-to-pdf>](https://circleci.com/gh/antonyoneill/remarkable-notebooks-to-pdf.svg?style=svg)](https://app.circleci.com/pipelines/github/antonyoneill/remarkable-notebooks-to-pdf)
+
 # Remarkable Notebook to PDF
 
 This tool exists purely as a learning exercise & productivity workflow enhancement.
