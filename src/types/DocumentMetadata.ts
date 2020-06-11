@@ -1,5 +1,8 @@
 import RemarkableMetadata from "./RemarkableMetadata";
+import NotebookContent from "./NotebookContent";
 
-type DocumentMetadata = Omit<RemarkableMetadata, "type">;
+interface DocumentMetadata extends Omit<RemarkableMetadata, "type"> {
+  content: NotebookContent;
+}
 
 export default DocumentMetadata;

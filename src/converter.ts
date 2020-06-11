@@ -5,9 +5,9 @@ import getEntriesTree from "./input/entry/getEntriesTree";
 const Converter = async (args: Args): Promise<void> => {
   const notebooks = await getEntries(args.inputDir);
 
-  const tree = getEntriesTree(notebooks);
+  const tree = getEntriesTree({ baseDir: args.inputDir }, notebooks);
 
-  console.log(tree);
+  console.log(JSON.stringify(tree, undefined, 1));
 };
 
 export default Converter;

@@ -2,6 +2,9 @@ import * as mockfs from "mock-fs";
 import readContent from "./readContent";
 
 describe("readContent", () => {
+  afterAll(() => {
+    mockfs.restore();
+  });
   it("reads the content from the file system", () => {
     const context = {
       baseDir: "/",

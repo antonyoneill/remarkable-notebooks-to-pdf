@@ -2,6 +2,9 @@ import RemarkableMetadata from "../../types/RemarkableMetadata";
 import getEntriesTree from "./getEntriesTree";
 
 describe("getEntriesTree", () => {
+  const context = {
+    baseDir: "./__fixtures__",
+  };
   it("can handle a simple notebook", () => {
     const input: RemarkableMetadata[] = [
       {
@@ -13,7 +16,7 @@ describe("getEntriesTree", () => {
       },
     ];
 
-    const output = getEntriesTree(input);
+    const output = getEntriesTree(context, input);
 
     expect(Object.keys(output)).toHaveLength(1);
     expect(output).toMatchObject({ "notebook-id": { id: "notebook-id" } });
@@ -44,7 +47,7 @@ describe("getEntriesTree", () => {
       },
     ];
 
-    const output = getEntriesTree(input);
+    const output = getEntriesTree(context, input);
 
     expect(Object.keys(output)).toHaveLength(2);
     expect(output).toMatchObject({
@@ -84,7 +87,7 @@ describe("getEntriesTree", () => {
       },
     ];
 
-    const output = getEntriesTree(input);
+    const output = getEntriesTree(context, input);
 
     expect(Object.keys(output)).toHaveLength(2);
     expect(output).toMatchObject({
@@ -139,7 +142,7 @@ describe("getEntriesTree", () => {
       },
     ];
 
-    const output = getEntriesTree(input);
+    const output = getEntriesTree(context, input);
 
     expect(Object.keys(output)).toHaveLength(2);
     expect(output).toMatchObject({
