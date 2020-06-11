@@ -50,7 +50,7 @@ describe("getMetadataTree", () => {
     expect(output).toMatchObject({
       "folder-id": expect.objectContaining({
         id: "folder-id",
-        content: {
+        children: {
           "nested-notebook-id": expect.objectContaining({
             id: "nested-notebook-id",
           }),
@@ -90,7 +90,7 @@ describe("getMetadataTree", () => {
     expect(output).toMatchObject({
       "folder-id": expect.objectContaining({
         id: "folder-id",
-        content: {
+        children: {
           "nested-notebook-id": expect.objectContaining({
             id: "nested-notebook-id",
           }),
@@ -145,10 +145,10 @@ describe("getMetadataTree", () => {
     expect(output).toMatchObject({
       "root-folder": expect.objectContaining({
         id: "root-folder",
-        content: {
+        children: {
           "nested-folder": expect.objectContaining({
             id: "nested-folder",
-            content: {
+            children: {
               "nested-notebook-id": expect.objectContaining({
                 id: "nested-notebook-id",
               }),

@@ -37,7 +37,7 @@ describe("convertMetadata", () => {
       lastModified: input.lastModified,
       parent: input.parent,
       visibleName: input.visibleName,
-      content: {},
+      children: {},
     });
   });
 });
