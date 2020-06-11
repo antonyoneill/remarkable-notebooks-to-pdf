@@ -1,12 +1,12 @@
 import * as fs from "fs";
-import getNotebooks from "./getNotebooks";
+import getEntries from "./getEntries";
 import { mocked } from "ts-jest/utils";
 import * as glob from "glob";
 
 jest.mock("glob");
 jest.mock("fs");
 
-describe("getNotebooks", () => {
+describe("getEntries", () => {
   it("can find a single notebook, with a single page", async () => {
     mocked(glob).sync.mockReturnValue(["/single-page.metadata"]);
     mocked(fs.readFileSync).mockReturnValue(
@@ -24,7 +24,7 @@ describe("getNotebooks", () => {
       })
     );
 
-    const notebooks = await getNotebooks("/");
+    const notebooks = await getEntries("/");
 
     expect(notebooks).toHaveLength(1);
     expect(notebooks[0]).toMatchObject({
@@ -71,7 +71,7 @@ describe("getNotebooks", () => {
       }
     });
 
-    const notebooks = await getNotebooks("/");
+    const notebooks = await getEntries("/");
 
     expect(notebooks).toHaveLength(2);
 

@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as glob from "glob";
 import * as path from "path";
-import RemarkableMetadata from "../types/RemarkableMetadata";
+import RemarkableMetadata from "../../types/RemarkableMetadata";
 
 const findMetadataFiles = async (baseDir): Promise<string[]> => {
   const metadataFiles = glob.sync("**/*.metadata", {
@@ -33,10 +33,10 @@ const readMetadata = (metadataFile: string): RemarkableMetadata => {
   };
 };
 
-const getNotebooks = async (baseDir: string): Promise<RemarkableMetadata[]> => {
+const getEntries = async (baseDir: string): Promise<RemarkableMetadata[]> => {
   const metadataFiles = await findMetadataFiles(baseDir);
 
   return metadataFiles.map(readMetadata);
 };
 
-export default getNotebooks;
+export default getEntries;

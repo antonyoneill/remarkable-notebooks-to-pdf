@@ -1,12 +1,12 @@
-import RemarkableMetadata from "../types/RemarkableMetadata";
-import DocumentMetadata from "../types/DocumentMetadata";
-import CollectionMetadata from "../types/CollectionMetadata";
-import convertMetadata from "./convertMetadata";
+import RemarkableMetadata from "../../types/RemarkableMetadata";
+import DocumentMetadata from "../../types/DocumentMetadata";
+import CollectionMetadata from "../../types/CollectionMetadata";
+import convertEntry from "./convertEntry";
 
 type MetadataTree = { [key: string]: DocumentMetadata | CollectionMetadata };
 
-const getMetadataTree = (input: RemarkableMetadata[]): MetadataTree =>
-  input.map(convertMetadata).reduce((acc, metadata) => {
+const getEntriesTree = (input: RemarkableMetadata[]): MetadataTree =>
+  input.map(convertEntry).reduce((acc, metadata) => {
     if (metadata.parent === "") {
       acc[metadata.id] = {
         ...metadata,
@@ -30,4 +30,4 @@ const getMetadataTree = (input: RemarkableMetadata[]): MetadataTree =>
     return acc;
   }, {});
 
-export default getMetadataTree;
+export default getEntriesTree;

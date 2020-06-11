@@ -1,7 +1,7 @@
-import RemarkableMetadata from "../types/RemarkableMetadata";
-import getMetadataTree from "./getMetadataTree";
+import RemarkableMetadata from "../../types/RemarkableMetadata";
+import getEntriesTree from "./getEntriesTree";
 
-describe("getMetadataTree", () => {
+describe("getEntriesTree", () => {
   it("can handle a simple notebook", () => {
     const input: RemarkableMetadata[] = [
       {
@@ -13,7 +13,7 @@ describe("getMetadataTree", () => {
       },
     ];
 
-    const output = getMetadataTree(input);
+    const output = getEntriesTree(input);
 
     expect(Object.keys(output)).toHaveLength(1);
     expect(output).toMatchObject({ "notebook-id": { id: "notebook-id" } });
@@ -44,7 +44,7 @@ describe("getMetadataTree", () => {
       },
     ];
 
-    const output = getMetadataTree(input);
+    const output = getEntriesTree(input);
 
     expect(Object.keys(output)).toHaveLength(2);
     expect(output).toMatchObject({
@@ -84,7 +84,7 @@ describe("getMetadataTree", () => {
       },
     ];
 
-    const output = getMetadataTree(input);
+    const output = getEntriesTree(input);
 
     expect(Object.keys(output)).toHaveLength(2);
     expect(output).toMatchObject({
@@ -139,7 +139,7 @@ describe("getMetadataTree", () => {
       },
     ];
 
-    const output = getMetadataTree(input);
+    const output = getEntriesTree(input);
 
     expect(Object.keys(output)).toHaveLength(2);
     expect(output).toMatchObject({

@@ -1,11 +1,11 @@
 import Args from "./types/args";
-import getNotebooks from "./input/getNotebooks";
-import getMetadataTree from "./input/getMetadataTree";
+import getEntries from "./input/entry/getEntries";
+import getEntriesTree from "./input/entry/getEntriesTree";
 
 const Converter = async (args: Args): Promise<void> => {
-  const notebooks = await getNotebooks(args.inputDir);
+  const notebooks = await getEntries(args.inputDir);
 
-  const tree = getMetadataTree(notebooks);
+  const tree = getEntriesTree(notebooks);
 
   console.log(tree);
 };

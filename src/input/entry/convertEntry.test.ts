@@ -1,7 +1,7 @@
-import RemarkableMetadata from "../types/RemarkableMetadata";
-import convertMetadata from "./convertMetadata";
+import RemarkableMetadata from "../../types/RemarkableMetadata";
+import convertEntry from "./convertEntry";
 
-describe("convertMetadata", () => {
+describe("convertEntry", () => {
   it("can convert a Document", () => {
     const input: RemarkableMetadata = {
       id: "id",
@@ -11,7 +11,7 @@ describe("convertMetadata", () => {
       visibleName: "Document Name",
     };
 
-    const output = convertMetadata(input);
+    const output = convertEntry(input);
 
     expect(output).toMatchObject({
       id: input.id,
@@ -30,7 +30,7 @@ describe("convertMetadata", () => {
       visibleName: "Document Name",
     };
 
-    const output = convertMetadata(input);
+    const output = convertEntry(input);
 
     expect(output).toMatchObject({
       id: input.id,

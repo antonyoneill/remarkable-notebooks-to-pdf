@@ -1,8 +1,8 @@
-import RemarkableMetadata from "../types/RemarkableMetadata";
-import DocumentMetadata from "../types/DocumentMetadata";
-import CollectionMetadata from "../types/CollectionMetadata";
+import RemarkableMetadata from "../../types/RemarkableMetadata";
+import DocumentMetadata from "../../types/DocumentMetadata";
+import CollectionMetadata from "../../types/CollectionMetadata";
 
-const convertMetadata = (
+const convertEntry = (
   input: RemarkableMetadata
 ): DocumentMetadata | CollectionMetadata => {
   if (input.type === "CollectionType") {
@@ -23,4 +23,4 @@ const convertMetadata = (
   }
 };
 
-export default convertMetadata;
+export default convertEntry;
