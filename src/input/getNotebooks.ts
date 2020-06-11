@@ -33,7 +33,7 @@ const readMetadata = (metadataFile: string): RemarkableMetadata => {
   };
 };
 
-const getNotebooks = async (baseDir): Promise<RemarkableMetadata[]> => {
+const getNotebooks = async (baseDir: string): Promise<RemarkableMetadata[]> => {
   const metadataFiles = await findMetadataFiles(baseDir);
 
   return metadataFiles.map(readMetadata);
