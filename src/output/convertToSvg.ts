@@ -17,8 +17,9 @@ const convertToSvg = (
 
       try {
         const outputPage = `${temporaryFolder}/page-${index}.svg`;
-        const stdout = execSync(`rM2svg -i "${page}" -o "${outputPage}"`);
-        console.log(stdout.toString());
+
+        execSync(`rM2svg -i "${page}" -o "${outputPage}"`);
+
         return outputPage;
       } catch (err) {
         console.error(err);
