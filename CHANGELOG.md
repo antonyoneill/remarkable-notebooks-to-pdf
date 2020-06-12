@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Functionality to scan the remarkable notebook folder structure
 - Output PDF file for each notebook found
+- Run from commandline
