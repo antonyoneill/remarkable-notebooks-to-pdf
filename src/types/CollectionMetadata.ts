@@ -6,4 +6,11 @@ interface CollectionMetadata extends RemarkableMetadata {
   type: "CollectionType";
 }
 
+export const isCollectionMetadata = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  obj: CollectionMetadata | any
+): obj is CollectionMetadata => {
+  return obj.type === "CollectionType";
+};
+
 export default CollectionMetadata;

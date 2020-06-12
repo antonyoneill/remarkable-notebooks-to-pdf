@@ -7,7 +7,8 @@ interface DocumentMetadata extends RemarkableMetadata {
 }
 
 export const isDocumentMetadata = (
-  obj: Partial<DocumentMetadata>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  obj: DocumentMetadata | any
 ): obj is DocumentMetadata => {
   return obj.type === "DocumentType";
 };
