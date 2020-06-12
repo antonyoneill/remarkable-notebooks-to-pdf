@@ -1,15 +1,12 @@
 import RemarkableMetadata from "../../types/RemarkableMetadata";
-import DocumentMetadata from "../../types/DocumentMetadata";
-import CollectionMetadata from "../../types/CollectionMetadata";
 import convertEntry from "./convertEntry";
 import EntryConversionContext from "../../types/EntryConversionContext";
-
-type MetadataTree = { [key: string]: DocumentMetadata | CollectionMetadata };
+import EntryTree from "../../types/EntryTree";
 
 const getEntriesTree = (
   context: EntryConversionContext,
   input: RemarkableMetadata[]
-): MetadataTree =>
+): EntryTree =>
   input
     .map((entry) => convertEntry(context, entry))
     .reduce((acc, metadata) => {

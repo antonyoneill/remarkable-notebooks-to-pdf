@@ -12,7 +12,6 @@ const findMetadataFiles = async (baseDir): Promise<string[]> => {
   if (metadataFiles.length === 0) {
     return [];
   }
-  console.log("Found files", metadataFiles);
 
   return metadataFiles;
 };
