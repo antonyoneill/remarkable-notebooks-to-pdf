@@ -1,11 +1,9 @@
 {
   "name": "remarkable-notebooks-to-pdf",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple utility to export notebooks as PDFs and organise them",
   "main": "lib/main.js",
-  "bin": {
-    "convert": "lib/main.js"
-  },
+  "bin": "lib/main.js",
   "scripts": {
     "build": "tsc -p .",
     "convert": "ts-node src/main.ts",
