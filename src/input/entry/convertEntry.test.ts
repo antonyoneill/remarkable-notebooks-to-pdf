@@ -35,6 +35,7 @@ describe("convertEntry", () => {
       content: {
         pages: [`/${input.id}/page-id-1.rm`, `/${input.id}/page-id-2.rm`],
       },
+      type: "DocumentType",
     });
   });
 
@@ -55,6 +56,7 @@ describe("convertEntry", () => {
       parent: input.parent,
       visibleName: input.visibleName,
       children: {},
+      type: "CollectionType",
     });
   });
 });

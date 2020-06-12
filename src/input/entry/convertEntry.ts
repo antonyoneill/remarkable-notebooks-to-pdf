@@ -15,6 +15,7 @@ const convertEntry = (
       parent: input.parent,
       visibleName: input.visibleName,
       children: {},
+      type: input.type,
     };
   } else if (input.type === "DocumentType") {
     const content = getContent({
@@ -28,6 +29,7 @@ const convertEntry = (
       parent: input.parent,
       visibleName: input.visibleName,
       content,
+      type: input.type,
     };
   }
 };
