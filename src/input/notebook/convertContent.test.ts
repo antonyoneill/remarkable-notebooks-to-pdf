@@ -5,6 +5,7 @@ describe("convertContent", () => {
     const context = {
       notebookId: "notebook-id",
       baseDir: "/",
+      outputDir: "/out",
     };
     const input = {
       pages: ["page-id-1", "page-id-2"],

@@ -9,6 +9,7 @@ describe("getContent", () => {
     const context = {
       baseDir: "/",
       notebookId: "notebook-id",
+      outputDir: "/out",
     };
 
     mockfs({

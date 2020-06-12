@@ -9,6 +9,7 @@ describe("readContent", () => {
     const context = {
       baseDir: "/",
       notebookId: "notebook-id",
+      outputDir: "/out",
     };
 
     const content = {

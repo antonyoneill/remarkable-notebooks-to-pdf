@@ -6,6 +6,7 @@ import * as mockfs from "mock-fs";
 describe("convertEntry", () => {
   const context = {
     baseDir: "/",
+    outputDir: "/out",
   };
   afterAll(() => {
     mockfs.restore();
