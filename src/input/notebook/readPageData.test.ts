@@ -9,6 +9,9 @@ describe("readPageData", () => {
       templateDir: "./templates",
     };
 
-    expect(readPageData(context)).toEqual(["P Grid small", "P Grid small"]);
+    expect(readPageData(context)).toEqual([
+      "templates/P Grid small.png",
+      "templates/P Grid small.png",
+    ]);
   });
 });

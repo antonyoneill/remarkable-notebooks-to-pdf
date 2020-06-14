@@ -8,7 +8,10 @@ const readPageData = (context: NotebookConversionContext): string[] => {
     { encoding: "utf-8" }
   );
 
-  return pageDataString.split("\n").filter((entry) => entry.length);
+  return pageDataString
+    .split("\n")
+    .filter((entry) => entry.length)
+    .map((entry) => path.join(context.templateDir, entry + ".png"));
 };
 
 export default readPageData;
