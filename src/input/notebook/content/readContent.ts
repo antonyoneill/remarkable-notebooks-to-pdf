@@ -1,7 +1,7 @@
-import Content from "../../types/Remarkable/Content";
+import Content from "../../../types/Remarkable/Content";
 import * as fs from "fs";
 import * as path from "path";
-import NotebookConversionContext from "../../types/NotebookConversionContext";
+import NotebookConversionContext from "../../../types/NotebookConversionContext";
 
 const readContent = (context: NotebookConversionContext): Content => {
   const pageDataPath = path.join(

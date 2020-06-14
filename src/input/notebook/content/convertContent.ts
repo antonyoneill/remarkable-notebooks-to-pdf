@@ -1,7 +1,7 @@
 import * as path from "path";
-import NotebookConversionContext from "../../types/NotebookConversionContext";
-import NotebookContent from "../../types/NotebookContent";
-import Content from "../../types/Remarkable/Content";
+import NotebookConversionContext from "../../../types/NotebookConversionContext";
+import NotebookContent from "../../../types/NotebookContent";
+import Content from "../../../types/Remarkable/Content";
 
 const convertContent = (
   context: NotebookConversionContext,

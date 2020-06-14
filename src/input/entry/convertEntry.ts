@@ -1,7 +1,7 @@
 import RemarkableMetadata from "../../types/RemarkableMetadata";
 import DocumentMetadata from "../../types/DocumentMetadata";
 import CollectionMetadata from "../../types/CollectionMetadata";
-import getContent from "../notebook/getContent";
+import getContent from "../notebook/content/getContent";
 import EntryConversionContext from "../../types/EntryConversionContext";
 
 const convertEntry = (
