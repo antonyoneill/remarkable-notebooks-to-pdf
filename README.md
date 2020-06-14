@@ -8,7 +8,9 @@ Your milage with this library may vary.
 
 ## Usage
 
-_TBC_
+```bash
+npx remarkable-notebooks-to-pdf -i <PATH_TO_NOTEBOOKS> -t <PATH_TO_TEMPLATES> -o <PATH_TO_OUTPUT>
+```
 
 ## Development
 
