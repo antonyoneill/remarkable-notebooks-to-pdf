@@ -1,9 +1,9 @@
 import EntryConversionContext from "../types/EntryConversionContext";
 import EntryTree, { EntryLeaf } from "../types/EntryTree";
-import { isDocumentMetadata } from "../types/DocumentMetadata";
 import FlattenedDocument from "../types/FlattenedDocument";
 import { isCollectionMetadata } from "../types/CollectionMetadata";
 import * as path from "path";
+import { isNotebook } from "../types/Notebook";
 const flattenTree = (
   context: EntryConversionContext,
   tree: EntryTree
@@ -19,10 +19,10 @@ const flattenTreeInternal = (
 ): FlattenedDocument[] => {
   return Object.values(tree).reduce(
     (acc: FlattenedDocument[], leaf: EntryLeaf) => {
-      if (isDocumentMetadata(leaf)) {
+      if (isNotebook(leaf)) {
         acc.push({
           ...leaf,
-          outputPath: path.join(...parentNames, leaf.visibleName),
+          outputPath: path.join(...parentNames, leaf.name),
         });
       } else if (isCollectionMetadata(leaf)) {
         flattenTreeInternal(

@@ -27,7 +27,7 @@ const generatePdf = (
     size: [1050, 1400],
     margin: 0,
     info: {
-      Title: document.visibleName,
+      Title: document.name,
       ModDate: new Date(parseInt(document.lastModified, 10) * 1),
     },
   });

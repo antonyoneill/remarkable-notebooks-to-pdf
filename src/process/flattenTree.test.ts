@@ -1,9 +1,7 @@
 import EntryTree from "../types/EntryTree";
 import EntryConversionContext from "../types/EntryConversionContext";
-import DocumentMetadata, {
-  isDocumentMetadata,
-} from "../types/DocumentMetadata";
 import flattenTree from "./flattenTree";
+import Notebook, { isNotebook } from "../types/Notebook";
 
 describe("flattenTree", () => {
   const context: EntryConversionContext = {
@@ -17,13 +15,14 @@ describe("flattenTree", () => {
       children: {
         "nested-notebook-id": {
           id: "nested-notebook-id",
-          content: {
-            pages: [],
-          },
           lastModified: "" + new Date().getMilliseconds(),
           parent: "folder-1",
-          visibleName: "Nested Notebook",
-          type: "DocumentType",
+          name: "Nested Notebook",
+          pages: [
+            {
+              source: "page-one.rm",
+            },
+          ],
         },
       },
       lastModified: "" + new Date().getMilliseconds(),
@@ -33,25 +32,22 @@ describe("flattenTree", () => {
     },
     "notebook-1": {
       id: "notebook-1",
-      content: {
-        pages: [],
-      },
+      pages: [],
       lastModified: "" + new Date().getMilliseconds(),
       parent: "",
-      visibleName: "Root Notebook",
-      type: "DocumentType",
+      name: "Root Notebook",
     },
   };
 
-  it("returns only documents", () => {
-    const output: DocumentMetadata[] = flattenTree(context, input);
+  it("returns only notebooks", () => {
+    const output: Notebook[] = flattenTree(context, input);
 
     expect(output).toHaveLength(2);
-    expect(output.every(isDocumentMetadata)).toEqual(true);
+    expect(output.every(isNotebook)).toEqual(true);
   });
 
-  it("Enriches the document to have a folder structure", () => {
-    const output: DocumentMetadata[] = flattenTree(context, input);
+  it("Enriches the notebook to have a folder structure", () => {
+    const output: Notebook[] = flattenTree(context, input);
 
     expect(output).toHaveLength(2);
     expect(output).toEqual([

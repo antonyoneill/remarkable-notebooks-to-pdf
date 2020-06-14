@@ -1,8 +1,8 @@
-import DocumentMetadata from "./DocumentMetadata";
 import CollectionMetadata from "./CollectionMetadata";
+import Notebook from "./Notebook";
 
 type EntryTree = { [key: string]: EntryLeaf };
 
-export type EntryLeaf = DocumentMetadata | CollectionMetadata;
+export type EntryLeaf = Notebook | CollectionMetadata;
 
 export default EntryTree;

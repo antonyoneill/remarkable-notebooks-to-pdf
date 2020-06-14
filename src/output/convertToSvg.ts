@@ -6,11 +6,11 @@ const convertToSvg = (
   temporaryFolder: string,
   document: FlattenedDocument
 ): string[] =>
-  document.content.pages
+  document.pages
     .map((page, index) => {
-      if (!fs.existsSync(page)) {
+      if (!fs.existsSync(page.source)) {
         console.log(
-          `Page missing for notebook ${document.visibleName} - ${page}`
+          `Page missing for notebook ${document.name} - ${page.source}`
         );
         return;
       }
@@ -18,7 +18,7 @@ const convertToSvg = (
       try {
         const outputPage = `${temporaryFolder}/page-${index}.svg`;
 
-        execSync(`rM2svg -i "${page}" -o "${outputPage}"`);
+        execSync(`rM2svg -i "${page.source}" -o "${outputPage}"`);
 
         return outputPage;
       } catch (err) {

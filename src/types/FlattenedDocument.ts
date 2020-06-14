@@ -1,6 +1,6 @@
-import DocumentMetadata from "./DocumentMetadata";
+import Notebook from "./Notebook";
 
-interface FlattenedDocument extends DocumentMetadata {
+interface FlattenedDocument extends Notebook {
   outputPath: string;
 }
 

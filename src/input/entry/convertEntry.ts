@@ -1,13 +1,14 @@
 import RemarkableMetadata from "../../types/RemarkableMetadata";
-import DocumentMetadata from "../../types/DocumentMetadata";
 import CollectionMetadata from "../../types/CollectionMetadata";
 import getContent from "../notebook/content/getContent";
 import EntryConversionContext from "../../types/EntryConversionContext";
+import Notebook from "../../types/Notebook";
+import getNotebook from "../notebook/getNotebook";
 
 const convertEntry = (
   context: EntryConversionContext,
   input: RemarkableMetadata
-): DocumentMetadata | CollectionMetadata => {
+): Notebook | CollectionMetadata => {
   if (input.type === "CollectionType") {
     return {
       id: input.id,
@@ -18,19 +19,7 @@ const convertEntry = (
       type: input.type,
     };
   } else if (input.type === "DocumentType") {
-    const content = getContent({
-      ...context,
-      notebookId: input.id,
-    });
-
-    return {
-      id: input.id,
-      lastModified: input.lastModified,
-      parent: input.parent,
-      visibleName: input.visibleName,
-      content,
-      type: input.type,
-    };
+    return getNotebook(context, input);
   }
 };
 

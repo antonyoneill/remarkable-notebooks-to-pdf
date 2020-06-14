@@ -1,8 +1,8 @@
 import RemarkableMetadata from "./RemarkableMetadata";
-import DocumentMetadata from "./DocumentMetadata";
+import { EntryLeaf } from "./EntryTree";
 
 interface CollectionMetadata extends RemarkableMetadata {
-  children: { [key: string]: CollectionMetadata | DocumentMetadata };
+  children: { [key: string]: EntryLeaf };
   type: "CollectionType";
 }
 

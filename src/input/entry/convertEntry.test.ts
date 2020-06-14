@@ -17,6 +17,9 @@ describe("convertEntry", () => {
       "/notebook-id.content": JSON.stringify({
         pages: ["page-id-1", "page-id-2"],
       }),
+      "/notebook-id.pagedata": JSON.stringify(`
+      Template A
+      Template B`),
     });
 
     const input: RemarkableMetadata = {
@@ -32,12 +35,8 @@ describe("convertEntry", () => {
     expect(output).toMatchObject({
       id: input.id,
       lastModified: input.lastModified,
-      parent: input.parent,
-      visibleName: input.visibleName,
-      content: {
-        pages: [`/${input.id}/page-id-1.rm`, `/${input.id}/page-id-2.rm`],
-      },
-      type: "DocumentType",
+      name: input.visibleName,
+      parent: "parent",
     });
   });
 
