@@ -1,4 +1,6 @@
 __fixtures__
 __sample__
-.prettierignore
+.eslintignore
 .gitignore
+.prettierignore
+lib
