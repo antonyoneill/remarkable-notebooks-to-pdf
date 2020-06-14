@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Layer template behind the drawing in PDF output
+- Encryption to PDF based on path
 
 ## [0.0.4] - 2020-06-12
 

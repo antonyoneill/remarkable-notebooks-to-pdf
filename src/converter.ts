@@ -18,9 +18,13 @@ const Converter = async (args: Args): Promise<void> => {
 
   const documents = flattenTree(context, tree);
 
-  documents.forEach((document) => generatePdf(context, document));
+  const pdfPasswords = args.pdfPassword.reduce((acc, entry) => {
+    const [key, value] = entry.split("=");
+    acc[key] = value;
+    return acc;
+  }, {});
 
-  console.log(JSON.stringify(documents, undefined, 1));
+  documents.forEach((document) => generatePdf(context, document, pdfPasswords));
 };
 
 export default Converter;

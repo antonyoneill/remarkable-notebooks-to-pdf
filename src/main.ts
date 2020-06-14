@@ -23,6 +23,13 @@ const argv = yargs.options({
     alias: "t",
     describe: "path to remarkable templates",
   },
+  pdfPassword: {
+    type: "array",
+    required: false,
+    default: [],
+    describe:
+      "key=value pairs. The value will be used as the user password if the key matches the notebook path",
+  },
   help: { type: "boolean", alias: "h" },
 }).argv;
 
