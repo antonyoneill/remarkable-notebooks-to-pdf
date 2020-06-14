@@ -8,8 +8,20 @@ Your milage with this library may vary.
 
 ## Usage
 
+Ensure that the `rM2svg` binary is on your path. You can get it from https://github.com/reHackable/maxio.
+
 ```bash
+npm --global install remarkable-notebooks-to-pdf
+
 npx remarkable-notebooks-to-pdf -i <PATH_TO_NOTEBOOKS> -t <PATH_TO_TEMPLATES> -o <PATH_TO_OUTPUT>
+```
+
+### PDF Encryption
+
+This is configured to AES encrypt the PDF output with a password if specified.
+
+```bash
+npx remarkable-notebooks-to-pdf -i <PATH_TO_NOTEBOOKS> -t <PATH_TO_TEMPLATES> -o <PATH_TO_OUTPUT> --pdfPassword 'Sensitive=SomePassword' --pdfPassword 'Other - Sensitive=AnotherPassword'
 ```
 
 ## Development
