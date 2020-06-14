@@ -1,6 +1,6 @@
-import NotebookConversionContext from "../../types/NotebookConversionContext";
-import readPageData from "./readPageData";
-describe("readPageData", () => {
+import NotebookConversionContext from "../../../types/NotebookConversionContext";
+import readPagedata from "./readPagedata";
+describe("readPagedata", () => {
   it("returns an array of templates entries", () => {
     const context: NotebookConversionContext = {
       baseDir: "./__fixtures__",
@@ -9,7 +9,7 @@ describe("readPageData", () => {
       templateDir: "./templates",
     };
 
-    expect(readPageData(context)).toEqual([
+    expect(readPagedata(context)).toEqual([
       "templates/P Grid small.png",
       "templates/P Grid small.png",
     ]);

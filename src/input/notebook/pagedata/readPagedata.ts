@@ -1,8 +1,8 @@
-import NotebookConversionContext from "../../types/NotebookConversionContext";
+import NotebookConversionContext from "../../../types/NotebookConversionContext";
 import * as fs from "fs";
 import * as path from "path";
 
-const readPageData = (context: NotebookConversionContext): string[] => {
+const readPagedata = (context: NotebookConversionContext): string[] => {
   const pageDataString = fs.readFileSync(
     path.join(context.baseDir, context.notebookId + ".pagedata"),
     { encoding: "utf-8" }
@@ -14,4 +14,4 @@ const readPageData = (context: NotebookConversionContext): string[] => {
     .map((entry) => path.join(context.templateDir, entry + ".png"));
 };
 
-export default readPageData;
+export default readPagedata;
