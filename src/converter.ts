@@ -11,6 +11,7 @@ const Converter = async (args: Args): Promise<void> => {
   const context: EntryConversionContext = {
     baseDir: args.inputDir,
     outputDir: args.outputDir,
+    templateDir: args.templateDir,
   };
 
   const tree = getEntriesTree(context, notebooks);

@@ -6,6 +6,7 @@ describe("readPageData", () => {
       baseDir: "./__fixtures__",
       notebookId: "notebook-id",
       outputDir: "./out",
+      templateDir: "./templates",
     };
 
     expect(readPageData(context)).toEqual(["P Grid small", "P Grid small"]);

@@ -6,6 +6,7 @@ describe("convertContent", () => {
       notebookId: "notebook-id",
       baseDir: "/",
       outputDir: "/out",
+      templateDir: "/templates",
     };
     const input = {
       pages: ["page-id-1", "page-id-2"],

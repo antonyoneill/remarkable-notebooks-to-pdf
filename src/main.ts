@@ -17,6 +17,12 @@ const argv = yargs.options({
     alias: "o",
     describe: "path to contain notebook PDFs",
   },
+  templateDir: {
+    type: "string",
+    required: true,
+    alias: "t",
+    describe: "path to remarkable templates",
+  },
   help: { type: "boolean", alias: "h" },
 }).argv;
 

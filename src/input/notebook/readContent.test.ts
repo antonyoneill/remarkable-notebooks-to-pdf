@@ -10,6 +10,7 @@ describe("readContent", () => {
       baseDir: "/",
       notebookId: "notebook-id",
       outputDir: "/out",
+      templateDir: "/templates",
     };
 
     const content = {

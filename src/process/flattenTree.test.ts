@@ -9,6 +9,7 @@ describe("flattenTree", () => {
   const context: EntryConversionContext = {
     baseDir: "./__fixtures__",
     outputDir: "./output",
+    templateDir: "./templates",
   };
   const input: EntryTree = {
     "folder-1": {

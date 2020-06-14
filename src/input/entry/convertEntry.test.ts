@@ -7,6 +7,7 @@ describe("convertEntry", () => {
   const context = {
     baseDir: "/",
     outputDir: "/out",
+    templateDir: "/templates",
   };
   afterAll(() => {
     mockfs.restore();

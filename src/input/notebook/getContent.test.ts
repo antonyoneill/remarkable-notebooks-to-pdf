@@ -10,6 +10,7 @@ describe("getContent", () => {
       baseDir: "/",
       notebookId: "notebook-id",
       outputDir: "/out",
+      templateDir: "/templates",
     };
 
     mockfs({

@@ -5,6 +5,7 @@ describe("getEntriesTree", () => {
   const context = {
     baseDir: "./__fixtures__",
     outputDir: "./out",
+    templateDir: "./templates",
   };
   it("can handle a simple notebook", () => {
     const input: RemarkableMetadata[] = [
