@@ -11,7 +11,8 @@ const readPagedata = (context: NotebookConversionContext): string[] => {
   return pageDataString
     .split("\n")
     .filter((entry) => entry.length)
-    .map((entry) => path.join(context.templateDir, entry + ".png"));
+    .map((entry) => path.join(context.templateDir, entry + ".png"))
+    .filter(fs.existsSync);
 };
 
 export default readPagedata;

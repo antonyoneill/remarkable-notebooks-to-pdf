@@ -1,6 +1,3 @@
-__fixtures__
-__sample__
-.eslintignore
-.gitignore
-.prettierignore
-lib
+/*
+
+!/src

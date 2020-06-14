@@ -1,5 +1,6 @@
 interface Page {
   source: string;
+  template: string;
 }
 
 interface Notebook {

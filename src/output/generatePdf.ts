@@ -19,8 +19,6 @@ const generatePdf = (
 
   fs.mkdirSync(temporaryFolder, { recursive: true });
 
-  const svgFiles = convertToSvg(temporaryFolder, document);
-
   // Collapse each svg into pdf
   const pdf = new PDFDocument({
     autoFirstPage: false,
@@ -37,9 +35,17 @@ const generatePdf = (
   const writeStream = fs.createWriteStream(`${outputPath}.pdf`);
   const pdfStream = pdf.pipe(writeStream);
 
-  svgFiles.forEach((svgFile) => {
-    const svg = fs.readFileSync(svgFile, { encoding: "utf-8" });
+  const resultingSvgs = convertToSvg(temporaryFolder, document);
+
+  resultingSvgs.forEach((svgFile, pageIndex) => {
     pdf.addPage();
+    if (document.pages[pageIndex].template) {
+      pdf.image(document.pages[pageIndex].template, {
+        fit: [1050, 1400],
+      });
+    }
+
+    const svg = fs.readFileSync(svgFile, { encoding: "utf-8" });
     SVGtoPDF(pdf, svg, 0, 0);
   });
 

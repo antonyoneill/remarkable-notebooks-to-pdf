@@ -6,12 +6,12 @@ describe("readPagedata", () => {
       baseDir: "./__fixtures__",
       notebookId: "notebook-id",
       outputDir: "./out",
-      templateDir: "./templates",
+      templateDir: "./__templates__",
     };
 
     expect(readPagedata(context)).toEqual([
-      "templates/P Grid small.png",
-      "templates/P Grid small.png",
+      "__templates__/P Grid small.png",
+      "__templates__/P Grid small.png",
     ]);
   });
 });

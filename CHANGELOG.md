@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Layer template behind the drawing in PDF output
+
 ## [0.0.4] - 2020-06-12
 
 ## [0.0.3] - 2020-06-12

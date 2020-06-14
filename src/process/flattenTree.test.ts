@@ -21,6 +21,7 @@ describe("flattenTree", () => {
           pages: [
             {
               source: "page-one.rm",
+              template: "template",
             },
           ],
         },
